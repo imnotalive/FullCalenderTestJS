@@ -98,8 +98,31 @@ revertDuration:0
 
 
                     },
-
+                    dayClick: function (date) {
+                        alert(date.format() +' '+' tarihine tıkladınız');
+                    },
                     isRTL: false,//arapça gibi diller için right to left
+                    eventClick: function (event)//olaya tıklayınca fonksiyon çalışmasını istiyorsak
+                    {
+                        alert(event.id +'');
+                    },
+
+                    drop: function (date) //olay bırakıldığında fonksiyonun tetiklenmesi
+                    {
+                        alert(date.format());
+                    },
+                    eventDrop: function (date)//eventin yerini değiştirdiğimizde çağırılacak fonksiyon
+                    {
+                        alert('olay yeri değişti' + event.title + ' ' + event.start.format());
+                    },
+                    eventRender: function (event) {
+                        if (event.title == 'Deneme Olayı') return false;
+                        return true;
+                    },
+                    eventAfterAllRender: function () // tüm eventler yüklendikten sonra 
+                    {
+                        alert('takvim yüklendi');
+                    },
                     events: [
                         {
                             id: 2,
